@@ -47,5 +47,17 @@ namespace Vendor.Tests
     List<Vendors> result = Vendors.GetAll();
     CollectionAssert.AreEqual(newList, result);
     }
+
+    [TestMethod]
+    public void GetAll_ReturnsVendorNames_VendorsList()
+    {
+      string vendorName1 = "Suzie's Cafe";
+      string vendorName2 = "Trader Joe's";
+      Vendors newVendor1 = new Vendors(vendorName1);
+      Vendors newVendor2 = new Vendors(vendorName2);
+      List<Vendors> newList = new List<Vendors> { newVendor1, newVendor2 };
+      List<Vendors> result = Vendors.GetAll();
+      CollectionAssert.AreEqual(newList, result);
+    }
   }
 }

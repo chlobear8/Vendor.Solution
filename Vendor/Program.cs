@@ -1,4 +1,4 @@
-using Microsoft.AspCore.Builder;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Vendor

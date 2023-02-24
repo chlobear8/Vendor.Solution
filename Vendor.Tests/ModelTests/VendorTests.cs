@@ -22,5 +22,16 @@ namespace Vendor.Tests
       string result = newVendor.VendorName;
       Assert.AreEqual(vendorName, result);
     }
+
+    [TestMethod]
+    public void SetVendorName_SetVendorName_String()
+    {
+      string vendorName = "Suzie's Cafe";
+      Vendors newVendor = new Vendors(vendorName);
+      string updatedVendor = "Trader Joe's";
+      newVendor.VendorName = updatedVendor;
+      string result = newVendor.VendorName;
+      Assert.AreEqual(updatedVendor, result);
+    }
   }
 }

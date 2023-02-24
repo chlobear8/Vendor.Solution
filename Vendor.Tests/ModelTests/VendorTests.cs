@@ -1,11 +1,17 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Vendor.Models;
+using System.Collections.Generic;
+using System;
 
 namespace Vendor.Tests
 {
   [TestClass]
-  public class VendorTests
+  public class VendorTests : IDisposable
   {
+    public void Dispose()
+    {
+      Vendors.ClearAll();
+    }
 
     [TestMethod]
     public void VendorConstructor_CreatesInstanceOfVendor_Vendor()
@@ -32,6 +38,14 @@ namespace Vendor.Tests
       newVendor.VendorName = updatedVendor;
       string result = newVendor.VendorName;
       Assert.AreEqual(updatedVendor, result);
+    }
+
+    [TestMethod]
+    public void GetAll_ReturnsEmptyList_VendorList()
+    {
+    List<Vendors> newList = new List<Vendors> { };
+    List<Vendors> result = Vendors.GetAll();
+    CollectionAssert.AreEqual(newList, result);
     }
   }
 }

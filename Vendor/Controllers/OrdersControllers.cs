@@ -14,31 +14,36 @@ namespace Order.Controllers
       return View(allOrders);
     }
 
-    [HttpGet("/orders/new")]
-    public ActionResult CreateForm()
+    [HttpGet("/vendors/{vendorsId}/orders/new")]
+    public ActionResult New(int vendorsId)
     {
-      return View();
+      Vendors vendors = Vendors.Find(vendorsId);
+      return View(vendor);
     }
 
-    [HttpPost("/orders")]
-    public ActionResult Create(string orderName)
-    {
-      Orders newOrder = new Orders(orderName);
-      return RedirectToAction("Index");
-    }
+    // [HttpPost("/orders")]
+    // public ActionResult Create(string orderName)
+    // {
+    //   Orders newOrder = new Orders(orderName);
+    //   return RedirectToAction("Index");
+    // }
 
-    [HttpPost("/orders/delete")]
-    public ActionResult DeleteAll()
-    {
-      Orders.ClearAll();
-      return View();
-    }
+    // [HttpPost("/orders/delete")]
+    // public ActionResult DeleteAll()
+    // {
+    //   Orders.ClearAll();
+    //   return View();
+    // }
 
-    [HttpGet("/orders/{id}")]
-    public ActionResult Show(int id)
+    [HttpGet("/vendors/{vendorsId}/orders/{ordersId}")]
+    public ActionResult Show(int vendorsId, int ordersId)
     {
-      Orders foundOrder = Orders.Find(id);
-      return View(foundOrder);
+      Orders orders = Orders.Find(ordersId);
+      Vendors vendors = Vendors.Find(vendorsId);
+      Dictionary<string, object> model = new Dictionary<string, object>();
+      model.Add("orders", orders);
+      model.Add("venders", vender);
+      return View(model);
     }
   }
 }

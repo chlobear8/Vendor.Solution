@@ -12,9 +12,10 @@
   <body>
     <h1>Order Details: </h1>
 
-    <h2>@Model.VendorName</h2>
+    <h2>@Model["orders"].VendorName</h2>
+    <h3>Vendor: @Model["vendors"].Name</h3>
 
-    <a href='/orders/new'>Add another order</a>
-    <a href='/orders'>View all orders</a>
+    <a href='/vendors/@Model["vendors"].Id/orders/new'>Add another order</a>
+    <a href='/vendors'>View all vendors</a>
   </body>
 </html>

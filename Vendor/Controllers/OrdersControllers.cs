@@ -12,7 +12,7 @@ namespace Vendor.Controllers
     public ActionResult New(int vendorsId)
     {
       Vendors vendors = Vendors.Find(vendorsId);
-      return View(vendor);
+      return View(vendors);
     }
     
     [HttpGet("/vendors/{vendorsId}/orders/{ordersId}")]
@@ -22,7 +22,7 @@ namespace Vendor.Controllers
       Vendors vendors = Vendors.Find(vendorsId);
       Dictionary<string, object> model = new Dictionary<string, object>();
       model.Add("orders", orders);
-      model.Add("venders", vender);
+      model.Add("vendors", vendors);
       return View(model);
     }
   }

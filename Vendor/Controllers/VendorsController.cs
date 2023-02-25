@@ -28,6 +28,17 @@ namespace Vendor.Controllers
       return RedirectToAction("Index");
     }
 
+    [HttpGet("/vendors/{id}")]
+    public ActionResult Show(int id)
+    {
+      Dictionary<string, object> model = new Dictionary<string, object>();
+      Vendors selectedVendor = Vendor.Find(id);
+      List<Orders> vendorOrders = selectedVendor.Orders;
+      model.Add("vendors", selectedVendor);
+      model.Add("orders", vendorOrders);
+      return View(model);
+    }
+
 
   }
 }

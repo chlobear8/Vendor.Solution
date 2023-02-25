@@ -3,16 +3,10 @@ using Vendor.Models;
 using System.Collections.Generic;
 using System;
 
-namespace Order.Controllers
+namespace Vendor.Controllers
 {
   public class OrdersController : Controller
   {
-    [HttpGet("/orders")]
-    public ActionResult Index()
-    {
-      List<Orders> allOrders = Orders.GetAll();
-      return View(allOrders);
-    }
 
     [HttpGet("/vendors/{vendorsId}/orders/new")]
     public ActionResult New(int vendorsId)
@@ -20,21 +14,7 @@ namespace Order.Controllers
       Vendors vendors = Vendors.Find(vendorsId);
       return View(vendor);
     }
-
-    // [HttpPost("/orders")]
-    // public ActionResult Create(string orderName)
-    // {
-    //   Orders newOrder = new Orders(orderName);
-    //   return RedirectToAction("Index");
-    // }
-
-    // [HttpPost("/orders/delete")]
-    // public ActionResult DeleteAll()
-    // {
-    //   Orders.ClearAll();
-    //   return View();
-    // }
-
+    
     [HttpGet("/vendors/{vendorsId}/orders/{ordersId}")]
     public ActionResult Show(int vendorsId, int ordersId)
     {

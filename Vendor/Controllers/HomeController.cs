@@ -11,5 +11,18 @@ namespace Vendor.Controllers
       Vendors newVendor = new Vendors("Add vendor to Vendor List");
       return View(newVendor);
     }
+
+    [Route("/vendors/new")]
+    public ActionResult CreateForm()
+    {
+      return View();
+    }
+
+    [Route("/vendors")]
+    public ActionResult Create(string vendorName)
+    {
+      Vendors newVendor = new Vendors(vendorName);
+      return View("Index", newVendor);
+    }
   }
 }

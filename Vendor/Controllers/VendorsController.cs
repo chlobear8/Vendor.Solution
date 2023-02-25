@@ -11,7 +11,7 @@ namespace Vendor.Controllers
     [HttpGet("/vendors")]
     public ActionResult Index()
     {
-      List<Vendor> allVendors = Vendors.GetAll();
+      List<Vendors> allVendors = Vendors.GetAll();
       return View(allVendors);
     }
 
@@ -32,7 +32,7 @@ namespace Vendor.Controllers
     public ActionResult Show(int id)
     {
       Dictionary<string, object> model = new Dictionary<string, object>();
-      Vendors selectedVendor = Vendor.Find(id);
+      Vendors selectedVendor = Vendors.Find(id);
       List<Orders> vendorOrders = selectedVendor.Orders;
       model.Add("vendors", selectedVendor);
       model.Add("orders", vendorOrders);

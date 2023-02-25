@@ -16,6 +16,11 @@ namespace Vendor.Models
       Id = _instances.Count;
       Orders = new List<Orders>{};
     }
+
+    public static void ClearAll()
+    {
+      _instances.Clear();
+    }
   }
 }
 

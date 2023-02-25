@@ -10,9 +10,14 @@
       crossorigin="anonymous">
   </head>
   <body>
+  using Vendor.Models;
+
     <h1>Vendors</h1>
     <ul>
+      @foreach (Vendors vendorName in Model)
+      {
       <li>@Model.VendorName</li>
+      }
     </ul>
     <a href="/vendors/new">Add a new vendor.</a>
   </body>

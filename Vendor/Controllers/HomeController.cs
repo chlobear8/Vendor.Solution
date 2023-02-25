@@ -5,11 +5,11 @@ namespace Vendor.Controllers
 {
   public class HomeController : Controller
   {
-    [Route("/")]
+    [HttpGet("/")]
     public ActionResult Index()
     {
-      Vendors newVendor = new Vendors("Add vendor to Vendor List");
-      return View(newVendor);
+      List<Vendors> allVendors = Vendors.GetAll();
+      return View(allVendors);
     }
 
     [Route("/vendors/new")]
@@ -18,11 +18,11 @@ namespace Vendor.Controllers
       return View();
     }
 
-    [Route("/vendors")]
+    [HttpPost("/vendors")]
     public ActionResult Create(string vendorName)
     {
-      Vendors newVendor = new Vendors(vendorName);
-      return View("Index", newVendor);
+      Vendors newVendor = new Vendor(vendorName);
+      return RedirectToAction("Index");
     }
   }
 }

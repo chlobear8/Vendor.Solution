@@ -48,8 +48,17 @@ namespace Vendor.Tests
       List<Vendors> newList = new List<Vendors> { newVendor1, newVendor2 };
       List<Vendors> result = Vendors.GetAll();
       CollectionAssert.AreEqual(newList, result);
-  }
+    }
 
-
+    [TestMethod]
+    public void Find_ReturnsCorrectVendor_Vendor()
+    {
+      string vendor1 = "Suzie's Cafe";
+      string vendor2 = "Trader Joe's";
+      Vendors newVendor1 = new Vendors(vendor1);
+      Vendors newVendor2 = new Vendors(vendor2);
+      Vendors result = Vendors.Find(2);
+      Assert.AreEqual(newVendor2, result);
+    }
   }
 }

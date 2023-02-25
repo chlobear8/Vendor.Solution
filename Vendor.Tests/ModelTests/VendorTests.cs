@@ -59,5 +59,14 @@ namespace Vendor.Tests
       List<Vendors> result = Vendors.GetAll();
       CollectionAssert.AreEqual(newList, result);
     }
+
+    [TestMethod]
+    public void GetId_VendorsInitiateWithAnIdAndGetterReturns_Int()
+    {
+      string vendorName = "Suzie's Cafe";
+      Vendors newVendor = new Vendors(vendorName);
+      int result = newVendor.Id;
+      Assert.AreEqual(1, result);
+    }
   }
 }

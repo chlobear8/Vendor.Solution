@@ -21,5 +21,13 @@ namespace Vendor.Controllers
       return View();
     }
 
+    [HttpPost("/vendors")]
+    public ActionResult Create(string vendorName)
+    {
+      Vendors newVendor = new Vendors(vendorName);
+      return RedirectToAction("Index");
+    }
+
+
   }
 }

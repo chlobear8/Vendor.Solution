@@ -10,10 +10,10 @@ namespace Vendor.Models
     public int Id { get; }
     public List<Orders> Orders { get; set; }
 
-    public Vendors(string vendorName, string vendorDescription)
+    public Vendors(string vendorName, string description)
     {
       Name = vendorName;
-      Description = vendorDescription;
+      Description = description;
       _instances.Add(this);
       Id = _instances.Count;
       Orders = new List<Orders>{};

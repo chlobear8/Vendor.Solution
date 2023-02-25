@@ -21,6 +21,11 @@ namespace Vendor.Models
     {
       _instances.Clear();
     }
+
+    public static List<Vendors> GetAll()
+    {
+      return _instances;
+    }
   }
 }
 

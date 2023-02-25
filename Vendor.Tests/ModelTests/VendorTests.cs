@@ -12,7 +12,7 @@ namespace Vendor.Tests
     {
       Vendors.ClearAll();
     }
-    
+
     [TestMethod]
     public void VendorConstructor_CreatesInstanceOfVendor_Vendor()
     {
@@ -23,7 +23,7 @@ namespace Vendor.Tests
     [TestMethod]
     public void GetName_ReturnsName_String()
     {
-      string name = "Test Vendor";
+      string name= "Test Vendor";
       Vendors newVendor = new Vendors(name);
       string result = newVendor.Name;
       Assert.AreEqual(name, result);
@@ -37,6 +37,19 @@ namespace Vendor.Tests
       int result = newVendor.Id;
       Assert.AreEqual(1, result);
     }
+
+    [TestMethod]
+    public void GetAll_ReturnsAllVendorObjects_VendorList()
+    {
+      string vendor1 = "Suzie's Cafe";
+      string vendor2 = "Trader Joe's";
+      Vendors newVendor1 = new Vendors(vendor1);
+      Vendors newVendor2 = new Vendors(vendor2);
+      List<Vendors> newList = new List<Vendors> { newVendor1, newVendor2 };
+      List<Vendors> result = Vendors.GetAll();
+      CollectionAssert.AreEqual(newList, result);
+  }
+
 
   }
 }

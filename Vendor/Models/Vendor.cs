@@ -6,12 +6,14 @@ namespace Vendor.Models
   {
     private static List<Vendors> _instances = new List<Vendors> {};
     public string Name { get; set; }
+    public string Description { get; set; }
     public int Id { get; }
     public List<Orders> Orders { get; set; }
 
-    public Vendors(string vendorName)
+    public Vendors(string vendorName, string vendorDescription)
     {
       Name = vendorName;
+      Description = vendorDescription;
       _instances.Add(this);
       Id = _instances.Count;
       Orders = new List<Orders>{};

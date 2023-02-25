@@ -10,12 +10,14 @@
       crossorigin="anonymous">
   </head>
   <body>
-    <h1>Add a vendor</h1>
-    <p>Add a vendor here:</p>
+    <h1>ADD A VENDOR</h1>
+    <p>Add a new vendor here:</p>
 
     <form action="/vendors" method="post">
-      <label for="vendorName">Vendor name</label>
+      <label for="vendorName">Vendor Name</label>
       <input id="vendorName" name="vendorName" type="text">
+      <label for="vendorDescription">Vendor Description</label>
+      <input id="vendorDescription" type="text">
       <button type="submit">Add</button>
     </form>
 

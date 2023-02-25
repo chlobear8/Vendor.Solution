@@ -5,16 +5,16 @@ using System;
 
 namespace Vendor.Controllers
 {
-  public class HomeController : Controller
+  public class VendorsController : Controller
   {
-    [HttpGet("/")]
+    [HttpGet("/vendors")]
     public ActionResult Index()
     {
       List<Vendors> allVendors = Vendors.GetAll();
       return View(allVendors);
     }
 
-    [Route("/vendors/new")]
+    [HttpGet("/vendors/new")]
     public ActionResult CreateForm()
     {
       return View();
@@ -25,6 +25,13 @@ namespace Vendor.Controllers
     {
       Vendors newVendor = new Vendors(vendorName);
       return RedirectToAction("Index");
+    }
+
+    [HttpPost("/vendors/delete")]
+    public ActionResult DeleteAll()
+    {
+      Vendors.ClearAll();
+      return View();
     }
   }
 }
